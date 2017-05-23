@@ -1,4 +1,4 @@
-o# Meander_Floodplain_Heterogeneity
+# Meander_Floodplain_Heterogeneity
 This repository contains the source codes of the numerical model developed by Bogoni et al. WRR 2017.
 Information about the model and the sctructure of input and output files are reported in the file README.pdf
 
