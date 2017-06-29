@@ -1,3 +1,4 @@
+
 !-----------------------------------------------------------------------
 ! MEANDER CENTERLINE MIGRATION MODEL - MCMM
 ! Simulation of the planform evolution of freely-evolving meanders with
@@ -10,6 +11,31 @@
 ! FLOODPLAIN:
 ! Camporeale et al. JGR 2005, M.Bogoni (PhD Thesis 2016)
 !-----------------------------------------------------------------------
+
+! Copyright (C) 2017 Manuel Bogoni
+! Developer can be contacted by manuel.bogoni@dicea.unipd.it
+! This program is free software; you can redistribute it and/or modify it 
+! under the terms of the GNU General Public License as published by the Free 
+! Software Foundation; either version 2 of the License, or (at your option) 
+! any later version. 
+! Redistribution and use in source and binary form, with or without
+! modification, are permitted provided that the following conditions are met:
+! * redistribution of source code must retain the above copyright notice, this 
+!   list of conditions and the following disclaimer;
+! * redistribution in binary form must reproduce the above copyright notice,
+!   this list of conditions and the following disclaimer in the documentation
+!   and/or other material provided with the distribution;
+! * the following manuscript must be cited: Bogoni et al. WRR 2017
+!   DOI: 10.1002/2017WR020726 
+! This program is distributed in the hope that it will be useful, but 
+! WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY 
+! or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for 
+! more details. 
+! You should have received a copy of the GNU General Public License along 
+! with this program; if not, write to the Free Software Foundation, Inc., 
+! 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA. 
+
+
       program mcmm
 
       use module_global
