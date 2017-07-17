@@ -64,7 +64,14 @@
       read(1,*) cstab      ! coefficient for time marching
       read(1,*) ivideo     ! number of iterations between two video prints
       read(1,*) ifile      ! number of iterations between two files prints
-
+      
+! valley boundaries
+      read(1,*)
+      read(1,*) jbound           ! transition shape (0: no boundary, 1:sharp,2:spline,3:exp-decaying,4:exp-reversed)
+      read(1,*) Ebound           ! erodibility coefficient of the valley boundaries
+      read(1,*) Lhalfvalley      ! transverse half-width of the usual floodplain
+      read(1,*) Ltransvalley     ! thickness of the transition layer
+       
 ! close file sim
       close(1)
 

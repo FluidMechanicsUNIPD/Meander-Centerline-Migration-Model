@@ -31,6 +31,10 @@
       real*8 Ef               ! erodibility coefficient of the floodplain
       real*8 Eb               ! erodibility coefficient of the point bars
       real*8 Eo               ! erodibility coefficient of the oxbow lakes
+      real*8 Ebound           ! erodibility coefficient of the valley boundaries
+      real*8 Lhalfvalley      ! transverse half-width of the usual floodplain
+      real*8 Ltransvalley     ! thickness of the transition layer
+      integer jbound          ! switch for valley boundaries
       
 ! river configuration
       integer flagxy0         ! initial path configuration (1:random, 2:given)

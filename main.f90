@@ -1,4 +1,3 @@
-
 !-----------------------------------------------------------------------
 ! MEANDER CENTERLINE MIGRATION MODEL - MCMM
 ! Simulation of the planform evolution of freely-evolving meanders with
@@ -35,7 +34,6 @@
 ! with this program; if not, write to the Free Software Foundation, Inc., 
 ! 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA. 
 
-
       program mcmm
 
       use module_global
@@ -45,6 +43,7 @@
       integer DateTimeI(8), DateTimeE(8)
       integer flagco, ierr, trasp, fondo, RUNSIM, j, jt, jprint
       real*8 tfc, time, year2sec, Tend, Tstart, dt, timestep, dCf, dLs
+      real*8 Eaux, boundaries
       parameter ( year2sec = 86400.d0 * 365.d0 )
       real*8, allocatable :: dUx(:), dUy(:), dUxold(:), dUyold(:)
 
@@ -102,9 +101,12 @@
       
       call dashline(6)
       write(6,*) 'VALLEY STRUCTURE'
-      write(6,102) 'Ef =', Ef
-      write(6,102) 'Eb =', Eb
-      write(6,102) 'Eo =', Eo
+      write(6,102) 'Ef  =', Ef
+      write(6,102) 'Eb  =', Eb
+      write(6,102) 'Eo  =', Eo
+      if (jbound.ge.1) then
+        write(6,102) 'Ebv =', Ebound
+      end if
       call dashline(6)
       write(6,*) 'LEADING PARAMETERS'
       write(6,103) 'beta = ', beta0, 'theta =', theta0
@@ -296,7 +298,7 @@
 ! assign the floodplain erodibility
           if ((Nnco.eq.0).or.       &
      &      ( (ABS(Ef-Eo).lt.1.D-12).and.(ABS(Ef-Eb).lt.1.D-12)) ) then
-            E(j) = Ef
+            E(j) = boundaries(j)
             Npf = Npf + 1
 
 ! assign erodibility to the current point: if there are oxbows, then
@@ -306,7 +308,7 @@
 
 ! node in floodplain
             if (whereisnode(j).eq.0) then
-              E(j) = Ef
+              E(j) = boundaries(j)
               Npf = Npf + 1
 
 ! node in point bar
