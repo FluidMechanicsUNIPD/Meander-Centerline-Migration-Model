@@ -9,3 +9,8 @@ CODE PROPERTIES
 * The compressed folder 'input' contains a couple of templates.
 * Input files must be into the 'input' folder, located in the same directory of the executable file.
 * Folders 'temp' and 'output' are required in the same directory of the executable file.
+
+See also:
+http://csdms.colorado.edu/wiki/Model:Meander_Centerline_Migration_Model
+https://github.com/csdms-contrib/Meander-Centerline-Migration-Model
+
