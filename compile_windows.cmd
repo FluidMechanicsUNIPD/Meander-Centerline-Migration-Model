@@ -27,6 +27,7 @@ main.f90 ^
 angle.f  ^
 banks.f ^
 coefZS.f90 ^
+cubecoeff ^
 curv.f ^
 dashline.f90 ^
 derivative.f ^
