@@ -26,6 +26,7 @@ cd %dir%
 main.f90 ^
 angle.f  ^
 banks.f ^
+boundaries.f90 ^
 coefZS.f90 ^
 cubecoeff.f ^
 curv.f ^
