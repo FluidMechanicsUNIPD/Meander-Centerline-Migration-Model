@@ -29,6 +29,7 @@ $fc90 -fcheck=all \
       angle.f\
       banks.f\
       coefZS.f90\
+      cubecoeff.f\
       curv.f\
       dashline.f90\
       derivative.f\
