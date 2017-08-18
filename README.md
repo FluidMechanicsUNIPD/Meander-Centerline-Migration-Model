@@ -13,9 +13,10 @@ CODE PROPERTIES
 
 See:
 
+[MCMM website](https://fluidmechanicsunipd.github.io/Meander-Centerline-Migration-Model)
+
+[MCMM GitHub](https://github.com/FluidMechanicsUNIPD/Meander-Centerline-Migration-Model)
+
 [CSDMS website](http://csdms.colorado.edu/wiki/Model:Meander_Centerline_Migration_Model)
 
 [CSDMS GitHub](https://github.com/csdms-contrib/Meander-Centerline-Migration-Model)
-
-[FluidMechanicsUNIPD on GitHub](https://github.com/FluidMechanicsUNIPD/Meander-Centerline-Migration-Model)
-
