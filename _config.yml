@@ -1,5 +1,1 @@
 theme: jekyll-theme-tactile
-
-{% for repository in site.github.public_repositories %}
-  * [{{ Meander-Centerline-Migration-Model }}]({{ Meander-Centerline-Migration-Model }})
-{% endfor %}
