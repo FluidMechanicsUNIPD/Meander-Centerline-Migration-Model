@@ -1,5 +1,7 @@
 theme: jekyll-theme-tactile
 
-repository: https://github.com/FluidMechanicsUNIPD/Meander-Centerline-Migration-Model/releases
+repository: https://github.com/FluidMechanicsUNIPD/Meander-Centerline-Migration-Model # code repository on Github
 
-show_downloads: true
+show_downloads: true # it should show buttons to download the code, but actually the link downloads the entire folder..
+
+exclude: _config.yml
