@@ -1,4 +1,4 @@
-# Meander Centerline Migration Model
+# Meander Centerline Migration Model (MCMM)
 This repository contains the source codes of the numerical model developed by Bogoni et al. WRR 2017 (http://onlinelibrary.wiley.com/doi/10.1002/2017WR020726/abstract).
 Information about the model and the sctructure of input and output files are reported in the file README.pdf
 
