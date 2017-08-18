@@ -1,4 +1,15 @@
 theme: jekyll-theme-tactile
+
+
+owner:
+  name: Manuel Bogoni
+  email: manuelbogoni@gmail.com
+  first_published: 2017
+  
+social:
+  github: https://github.com/FluidMechanicsUNIPD
+  linkedin-square: https://www.linkedin.com/in/manuelbogoni/
+  
 author: "Manuel Bogoni"
 
 repository: https://github.com/FluidMechanicsUNIPD/Meander-Centerline-Migration-Model # code repository on Github
