@@ -4,6 +4,3 @@ repository: https://github.com/FluidMechanicsUNIPD/Meander-Centerline-Migration-
 
 dowload:
       source: https://github.com/FluidMechanicsUNIPD/Meander-Centerline-Migration-Model/archive/v1.0.zip
-      
-sass:
-  style: compressed
