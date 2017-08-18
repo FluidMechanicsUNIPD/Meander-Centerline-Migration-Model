@@ -1,5 +1,11 @@
 
-theme: jekyll-theme-tactile
+
+
+title: Marp
+subTitle: Markdown Presentation Writer
+favicon: https://raw.githubusercontent.com/yhatt/marp/master/images/marp.png
+faviconType: image/png
+repository: https://github.com/yhatt/marp/
 
 repository: https://github.com/FluidMechanicsUNIPD/Meander-Centerline-Migration-Model
 
