@@ -1,7 +1,7 @@
 # Meander Centerline Migration Model (MCMM)
 This repository contains the source codes of the numerical model developed by [Bogoni et al. WRR 2017](http://onlinelibrary.wiley.com/doi/10.1002/2017WR020726/abstract).
 
-The model has been deposited as [doi:10.5281/zenodo.821601](https://zenodo.org/record/821601#.WZbzvq2B2CQ)
+The model has been deposited: [![DOI](https://zenodo.org/badge/95902287.svg)](https://zenodo.org/badge/latestdoi/95902287)
 
 CODE PROPERTIES
 * The source code is written in Fortran 77/90 language, thus a Fortran compiler is required (e.g. gfortran).
