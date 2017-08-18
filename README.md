@@ -5,7 +5,7 @@ The model has been deposited: [![DOI](https://zenodo.org/badge/95902287.svg)](ht
 
 CODE PROPERTIES
 * The source code is written in Fortran 77/90 language, thus a Fortran compiler is required (e.g. gfortran).
-* The code can be compiled through the script compile_unix (for UNIX/MAC) or compile_windows.cmd (for Windows).
+* The code can be compiled through the script _compile_unix_ (for UNIX/macOS) or _compile_windows.cmd_ (for Windows).
 * Information about the model and the sctructure of input and output files are reported in the file _README.pdf_
 * The folder _input_ contains a couple of templates.
 * Input files must be into the _input_ folder, located in the same directory of the executable file.
