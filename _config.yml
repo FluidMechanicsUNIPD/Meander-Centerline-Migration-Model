@@ -1,3 +1,5 @@
 theme: jekyll-theme-tactile
 
 repository: https://github.com/FluidMechanicsUNIPD/Meander-Centerline-Migration-Model
+
+show_downloads: true
