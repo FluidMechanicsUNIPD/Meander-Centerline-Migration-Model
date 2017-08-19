@@ -5,9 +5,12 @@ owner:
   email: manuelbogoni@gmail.com
   first_published: 2017
   
-social:
-  github: https://github.com/FluidMechanicsUNIPD
-  linkedin-square: https://www.linkedin.com/in/manuelbogoni/
+navbar-links:
+  About Me: "aboutme"
+  Projects:
+    - MCMM: "https://fluidmechanicsunipd.github.io/Meander-Centerline-Migration-Model/"
+  Publications:
+  Contacs:
   
 author: "Manuel Bogoni"
 
