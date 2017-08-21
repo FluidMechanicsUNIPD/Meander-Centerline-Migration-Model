@@ -2,9 +2,12 @@ theme: jekyll-theme-tactile
 
 # Name of website
 title: MCMM
+subtitle: Meander Centerline Migration Model
 
 # Short description of your site
-description: A virtual proof that name is awesome!
+description: This repository contains the source codes of the numerical model developed by 
+[Bogoni et al. WRR 2017](http://onlinelibrary.wiley.com/doi/10.1002/2017WR020726/abstract) 
+and featured as AGU Research Spotlight by [EOS](https://doi.org/10.1029/2017EO078667).
 
 owner:
   name: Manuel Bogoni
