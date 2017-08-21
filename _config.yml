@@ -5,7 +5,7 @@ title: Meander Centerline Migration Model (MCMM)
 subtitle: Meander Centerline Migration Model
 
 # Short description of your site
-description: aaa
+description: Source code of the numerical model developed by Bogoni et al. WRR 2017 to simulate the long-term migration of meandering rivers flowing above self-formed heterogeneous floodplains. 
 
 owner:
   name: Manuel Bogoni
