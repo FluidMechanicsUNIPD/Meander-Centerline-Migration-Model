@@ -1,5 +1,11 @@
 theme: jekyll-theme-tactile
 
+# Name of website
+title: MCMM
+
+# Short description of your site
+description: A virtual proof that name is awesome!
+
 owner:
   name: Manuel Bogoni
   email: manuelbogoni@gmail.com
