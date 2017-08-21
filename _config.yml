@@ -16,6 +16,6 @@ author: "Manuel Bogoni"
 
 repository: https://github.com/FluidMechanicsUNIPD/Meander-Centerline-Migration-Model # code repository on Github
 
-show_downloads: true # it should show buttons to download the code, but actually the link downloads the entire folder..
+show_downloads: false # it should show buttons to download the code, but actually the link downloads the entire folder..
 
 google_analytics:
