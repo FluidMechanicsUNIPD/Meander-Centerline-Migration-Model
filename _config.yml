@@ -25,3 +25,6 @@ repository: https://github.com/FluidMechanicsUNIPD/Meander-Centerline-Migration-
 show_downloads: false # it should show buttons to download the code, but actually the link downloads the entire folder..
 
 google_analytics:
+
+exclude:
+  - README.md
