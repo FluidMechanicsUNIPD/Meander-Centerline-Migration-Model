@@ -1,4 +1,4 @@
-theme: jekyll-theme-tactile
+àtheme: jekyll-theme-tactile
 
 # Name of website
 title: MCMM
@@ -27,4 +27,4 @@ show_downloads: false # it should show buttons to download the code, but actuall
 google_analytics:
 
 exclude:
-  - README.md
+ # - README.md
