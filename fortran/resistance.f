@@ -340,7 +340,7 @@ c        dtheta1 = 0.45d0 * theta**0.5
       else if (theta.ge.1.1068d0) then
         EE = 0.3d0 + 0.7d0*theta**(-1.8d0)
         theta1 = EE**(-0.56d0)
-        dtheta1 = 0.7056d0 * theta**(-2.8d0) * EE**(-1.56d0)
+        dtheta1 = -0.56d0 * EE**(-1.56d0)* 1.26d0 * theta**(-2.8d0) * 
       end if
 
 c Shiel ratio
