@@ -10,7 +10,7 @@ c-----------------------------------------------------------------------
       implicit none
       integer ksavgol, N, j, jt, np
       parameter (np = 11)
-      real*8 s(N), th(N), c(N)
+      real*8 s(N), th(N), c(N), caux(N)
 
 c curvature
       call derivative(N, s, th, c, 3)
@@ -22,12 +22,14 @@ c repeated Savitzsky-Golay filtering at each iterations
       if (ksavgol.lt.0) then
         do j = 1, ABS(ksavgol)
           call savgolfilter_new (np, N, c, c)
+          c(:) = caux(:)
         end do
 
 c periodic Savitzsky-Golay filtering
       else if (ksavgol.gt.0) then
         if (MOD(jt,ksavgol).eq.0) then
-          call savgolfilter_new (np, N, c, c)
+          call savgolfilter_new (np, N, c, caux)
+          c(:) = caux(:)
         end if
       end if
      
