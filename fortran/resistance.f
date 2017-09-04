@@ -290,16 +290,13 @@ c RESISTANCE FOR PLANE BED (Meyer-Peter & Muller, Keulegan 1938)
 c#######################################################################
       subroutine resistance_planebed(ds, Cf, dCD, dCT, rpic0, rpic)
       implicit none
-      real*8 ds, CC, Cf, dCD, dCT, rpic0, rpic
-
-c conductance
-      CC = 1.d0 / ( 6.d0 + 2.5d0 * log(1.d0/(2.5d0*ds)) )
+      real*8 ds, Cf, dCD, dCT, rpic0, rpic
 
 c friction coeffient
-      Cf = CC**2.d0
+      Cf = ( 6.d0 + 2.5d0 * log(1.d0/(2.5d0*ds)))**(-2.d0)
 
 c derivatives of friction coefficients
-      dCD = - 5.d0 * CC**3.d0
+      dCD = - 5.d0 * ( 6.d0 + 2.5d0 * log(1.d0/(2.5d0*ds)))**(-3.d0)
       dCT = 0.d0
 
       rpic = rpic0
@@ -313,8 +310,8 @@ c RESISTANCE FOR DUNE-COVERED BED (Engelund-Hansen 1967)
 c#######################################################################
       subroutine resistance_dunebed(ds, theta, Cf, dCD, dCT, rpic0,rpic)
       implicit none
-      real*8 ds, theta, CC, Cf, dCD, dCT, rpic0, rpic
-      real*8 theta1, dtheta1, A, B, D, F, AA, BB, EE
+      real*8 ds, theta, Cf, dCD, dCT, rpic0, rpic
+      real*8 theta1, dtheta1, A, B, D, F
 
 c experimental function
       if (theta.lt.0.06d0) then
@@ -338,29 +335,26 @@ c        dtheta1 = 0.45d0 * theta**0.5
         theta1 = A + B/F * (theta-D)
         dtheta1 = B/F
       else if (theta.ge.1.1068d0) then
-        EE = 0.3d0 + 0.7d0*theta**(-1.8d0)
-        theta1 = EE**(-0.56d0)
-        dtheta1 = 0.56d0 * EE**(-1.56d0)* 1.26d0 * theta**(-2.8d0) * 
+        theta1 = (0.3d0 + 0.7d0*theta**(-1.8d0))**(-0.56d0)
+        dtheta1 = 0.56d0 * (0.3d0 + 0.7d0*theta**(-1.8d0))**(-1.56d0)
+     8          * 0.7d0*1.8d0*theta**(-2.8d0)
       end if
 
-c Shiel ratio
-      AA = theta1 / theta
-
-c derivative of Shield ratio
-      BB = dtheta1 / theta - theta1 / theta**2.d0
-c      BB = 1.d0/theta - dtheta1/theta1
-
-c conductance
-      CC = 1.d0 / ( 6.d0 + 2.5d0 * log(AA/(2.5d0*ds)) )
-
 c friction resistance
-      Cf = CC**2.d0 / AA
+      Cf = ( 6.d0 + 2.5d0 * log((theta1/theta)/(2.5d0*ds)))**(-2.d0) * 
+     8              (theta1/theta)**(-1.d0)
 
 c derivatives of friction coefficient
-      dCD = - 5.d0 * CC**3.d0 / AA
-      dCT = - CC**2.d0 / AA**2.d0 * BB * (5.d0 * CC + 1.d0)
+      dCD = - 5.d0 * (theta1/theta)**(-1.d0) * 
+     7      ( 6.d0 + 2.5d0 * log((theta1/theta)/(2.5d0*ds)))**(-3.d0)
+     8              
+      dCT = - (theta1/theta)**(-2.d0) * 
+     1      (1.d0/theta*dtheta1 - theta1/theta) * 
+     2      ( 6.d0 + 2.5d0 * log((theta1/theta)/(2.5d0*ds)))**(-2.d0) *
+     3      (1.d0 + 5.d0 * 
+     4      ( 6.d0 + 2.5d0 * log((theta1/theta)/(2.5d0*ds)))**(-1.d0))
 
-      rpic = rpic0/DSQRT(AA)
+      rpic = rpic0/DSQRT(theta1/theta)
 c      rpic = rpic0
 
 c end of subroutine
@@ -414,29 +408,29 @@ c#######################################################################
       csi = theta / thetar
       A = 0.00218d0
 
-      if (csi.gt.1.65d0) then
-        B = 5474.d0
-        F = 0.853d0
-        D = 4.5d0
-        G0 = B * (1.d0 - F/csi)**D
-        dG = B * D * ( 1.d0 - F/csi)**(D-1.d0) * F / (csi**2.d0)
+      if (csi.lt.1.d0) then
+        B = 14.2d0
+        G0 = A * csi**B
+        dG = B * G0 / theta
       else if ((csi.ge.1.d0).and.(csi.le.1.65d0)) then
         B = 14.2d0
         F = 9.28d0
-        G0 = DEXP(B * (csi-1.d0) - F*(csi-1.d0)**2.d0)
-        dG = G0 * (B - 2.d0 * F *(csi-1.d0) )
-      else if (csi.lt.1.d0) then
-        B = 14.2d0
-        G0 = csi**B
-        dG = B * csi**(B-1.d0)
+        G0 = A * DEXP(B * (csi-1.d0) - F*(csi-1.d0)**2.d0)
+        dG = G0/thetar * (B - 2.d0 * F *(csi-1.d0) )
+      elseif (csi.gt.1.65d0) then
+        B = 5474.d0
+        F = 0.853d0
+        D = 4.5d0
+        G0 = A * B * (1.d0 - F/csi)**D
+        dG = A*B*D*F*thetar/theta**2.d0 * (1.d0-F/csi)**(D-1.d0)
       end if
 
 c sediment transport intensity
-      phi = A * G0 * theta**1.5d0
+      phi = G0 * theta**1.5d0
 
 c derivatives of sediment transport intensity
       dphiD = 0.d0
-      dphiT = A*(dG/thetar)*theta**1.5d0 + A*G0*1.5d0*theta**0.5d0
+      dphiT = theta**1.5d0 * dG + 1.50 * phi/theta
 
 c end of the subroutine
       return
@@ -456,9 +450,8 @@ c sediment transport intensity
       phi  = A/Cf * theta**B
 
 c derivatives of sediment transport intensity
-      F = -A * theta**B / Cf**2.d0
-      dphiD = F * dCD
-      dphiT = F * dCT + A*B/Cf * theta**(B-1.d0)
+      dphiD = -phi/Cf * dCD
+      dphiT = -phi/Cf * dCT + B*phi/theta
 
 c end of subroutine
       return
