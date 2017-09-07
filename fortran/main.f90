@@ -2,7 +2,7 @@
 ! MEANDER CENTERLINE MIGRATION MODEL - MCMM
 ! Simulation of the planform evolution of freely-evolving meanders with
 ! three environments (floodplain, scroll bars, oxbow lakes).
-! Last update: 2017/01/02 by Manuel Bogoni
+! Last update: 2017/09/07 by Manuel Bogoni
 !-----------------------------------------------------------------------
 ! FLOW FIELD:
 ! ZS approach (Zolezzi and Seminara, JFM 2001)
