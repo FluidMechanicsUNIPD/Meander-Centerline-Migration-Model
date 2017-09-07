@@ -4,9 +4,8 @@ prova               ! simulation name (maximum 20 letters)
 20.0d0              ! beta      half width to depth ratio (B/D)
 0.30d0              ! theta     Shield parameter (D*S/delta*dg)    
 0.0002d0            ! ds        grain roughness (dg/D)	
-1                   ! flagbed   source for bed configuration (1:from Rp, 2:from typebed)     
+0                   ! flagbed   source for bed configuration (0:from Rp, 1:flat bed, 2:dune-covered)   
 125.5d0              ! Rp        particle Reynolds number [(Delta g dg^3)^0.5 / nu]
-1                   ! typebed   given bed configuration (1:flat bed, 2:dune-covered)
 0.5d0               ! rpic      transverse transport parameter (Talmon 1995)
 1                   ! jmodel    flow field model (1:ZS, 2:IPS)
 1000                ! Nz        number of points for the vertical flow integration in ZS model
