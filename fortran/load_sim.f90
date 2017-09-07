@@ -24,7 +24,6 @@
       read(1,*) ds0        ! grain roughness
       read(1,*) flagbed    ! bedset    (1:from Rp, 2:from bed input)              ex IndBed
       read(1,*) Rp         ! particle Reynolds Rp=(Delta g ds^3)^0.5/ni
-      read(1,*) typebed    ! bed configuration (1:flat bed, 2:dune covered)       ex IndC
       read(1,*) rpic0      ! transverse transport parameter (Talmon)
       read(1,*) jmodel     ! flag for flow field model (1:ZS, 2:IPS)
       read(1,*) Nz         ! number of points for the vertical integration of the flow field

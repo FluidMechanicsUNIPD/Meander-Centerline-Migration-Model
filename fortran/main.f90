@@ -114,17 +114,11 @@
       call dashline(6)
 
       select case (flagbed)
+      case(0)
       case(1)
       case(2)
       case default
         stop 'ERROR! Flag for bed set'
-      end select
-
-      select case (typebed)
-      case(1)
-      case(2)
-      case default
-        stop 'ERROR! Flag for bed configuration'
       end select
 
 100   format(a7, 1x, i6, 1x, a7)

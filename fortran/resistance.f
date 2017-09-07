@@ -18,17 +18,28 @@ c-----------------------------------------------------------------------
 
 c print on screen
       if (j_print.eq.1) then
-        write(6,*) 'RIVER MORPHOLOGY'
-        if (fondo.eq.1) then
-          write(6,*) 'Plane bed'
-        else if (fondo.eq.2) then
-          write(6,*) 'Dune-covered bed bed'
+      
+        write(6,*) 'RIVER MORPHOLOGY FROM INPUT'
+        if (flagbed.eq.0) then
+          write(6,*) 'given by Rp (see below)'
+        else if (flagbed.eq.1) then
+          write(6,*) 'Flat bed'
+        else if (flagbed.eq.2) then
+          write(6,*) 'Dune-covered bed'
         end if
+      
+        write(6,*) 'RIVER MORPHOLOGY FROM DATA'
+        if (fondo.eq.1) then
+          write(6,*) 'Flat bed'
+        else if (fondo.eq.2) then
+          write(6,*) 'Dune-covered bed'
+        end if
+
       end if
 
 c-----------------------------------------------------------------------
 c BED AND TRANSPORT TYPES FROM Rp + VAN RIJN METHOD(1984)
-      if (flagbed.eq.1) then
+      if (flagbed.eq.0) then
 c-----------------------------------------------------------------------
 
 c FRICTION COEFFICIENT
@@ -92,49 +103,48 @@ c end if for sediment transport intensity
         end if
 
 c-----------------------------------------------------------------------
-c BED AND TRANSPORT TYPES FROM FROM INPUT SETTING
-      else if (flagbed.eq.2) then
+c BED AND TRANSPORT TYPES FROM FROM INPUT SETTING - FLAT BED
+      else if (flagbed.eq.1) then
 c-----------------------------------------------------------------------
 
-c PLANE BED
-        if (typebed.eq.1) then
-
 c flow resistance and derivatives
-          call resistance_planebed(ds, Cf, dCD, dCT, rpic0, rpic)
+        call resistance_planebed(ds, Cf, dCD, dCT, rpic0, rpic)
 
 c sediment transport intensity and derivatives
 
 c Meyer-Peter & Muller 1948
-          if (j_bedload.eq.1) then
-            call seditrans_mpm(theta, phi, dphiD, dphiT)
+        if (j_bedload.eq.1) then
+          call seditrans_mpm(theta, phi, dphiD, dphiT)
 c Parker (1982, 1990)
-          else if (j_bedload.eq.2) then
-            call seditrans_parker(theta, phi, dphiD, dphiT)
+        else if (j_bedload.eq.2) then
+          call seditrans_parker(theta, phi, dphiD, dphiT)
 c flag error
-          else
-            stop 'ERROR! Wrong flag for bedload transport'
-          end if
-
-c DUNE-COVERED BED
-        else if (typebed.eq.2) then
+        else
+          stop 'ERROR! Wrong flag for bedload transport'
+        end if
+        
+c bed characterization
+        call seditrans_characterization(theta, ds, Rp, Cf, F0, trasp)
+        
+c-----------------------------------------------------------------------
+c BED AND TRANSPORT TYPES FROM FROM INPUT SETTING - DUNE COVERED BED
+      else if (flagbed.eq.2) then
+c-----------------------------------------------------------------------
 
 c flow resistance and derivatives
-          call resistance_dunebed(ds, theta, Cf, dCD, dCT, rpic0, rpic)
+        call resistance_dunebed(ds, theta, Cf, dCD, dCT, rpic0, rpic)
 
 c sediment transport intesity and derivatives
 c Engelund and Hansen (1967)
-          call seditrans_EH(theta, Cf, dCD, dCT, phi, dphiD, dphiT)
-
-c flag error
-        else
-          stop 'ERROR! Wrong flag for bed configuration'
-        end if
-        
+        call seditrans_EH(theta, Cf, dCD, dCT, phi, dphiD, dphiT)
+     
 c bed characterization
         call seditrans_characterization(theta, ds, Rp, Cf, F0, trasp)
 
 c-----------------------------------------------------------------------
 c end if for resistance and intensity
+      else
+        stop 'ERROR! Wrong flag for bed configuration'
       end if
 c-----------------------------------------------------------------------
 
@@ -147,6 +157,7 @@ c print on screen
       if (j_print.eq.1) then
         write(6,'(a3,3(1x,f12.5))') 'Cf', Cf, CD, CT
         write(6,'(a3,3(1x,f12.5))') 'phi', phi, phiD, phiT
+        write(6,'(a3,3(1x,f12.5))') 'Fr0', F0
         call dashline(6)
       end if
       

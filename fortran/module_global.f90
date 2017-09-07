@@ -14,8 +14,7 @@
       character*100 filename  ! auxiliary file name
       
 ! flow and sediment
-      integer flagbed         ! bed setting (1:from Rp, 2:from indbed)
-      integer typebed         ! bed configuration (1:flat bed, 2:dune-covered)
+      integer flagbed         ! source for bed configuration (0:from Rp, 1:flat bed, 2:dune-covered) 
       real*8 beta, beta0, betaold     ! aspect ratio B0/D0 (current, initial, previous)
       real*8 theta, theta0, thetaold  ! Shield parameter (current, initial, previous)
       real*8 ds, ds0, dsold           ! dimensionless grain size ds/D0 (current, initial, previous)
