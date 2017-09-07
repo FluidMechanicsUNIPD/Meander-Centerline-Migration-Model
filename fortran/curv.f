@@ -21,7 +21,7 @@ c numerical smoothing
 c repeated Savitzsky-Golay filtering at each iterations
       if (ksavgol.lt.0) then
         do j = 1, ABS(ksavgol)
-          call savgolfilter_new (np, N, c, c)
+          call savgolfilter_new (np, N, c, caux)
           c(:) = caux(:)
         end do
 
