@@ -360,7 +360,7 @@ c derivatives of friction coefficient
      7      ( 6.d0 + 2.5d0 * log((theta1/theta)/(2.5d0*ds)))**(-3.d0)
           
       dCT = - (theta1/theta)**(-2.d0) * 
-     1      (1.d0/theta*dtheta1 - theta1/theta**2.d0) * 
+     1      (1.d0/theta*dtheta1 - theta1/(theta**2.d0)) * 
      2      ( 6.d0 + 2.5d0 * log((theta1/theta)/(2.5d0*ds)))**(-2.d0) *
      3      (1.d0 + 5.d0 * 
      4      ( 6.d0 + 2.5d0 * log((theta1/theta)/(2.5d0*ds)))**(-1.d0))
