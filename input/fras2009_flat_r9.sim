@@ -1,0 +1,46 @@
+- INTRO ----------------------------------------------------------------------------------------------------
+fras2009_flat_r9               ! simulation name (maximum 20 letters)             
+- MORPHODYNAMICS -------------------------------------------------------------------------------------------
+18.0d0              ! beta      half width to depth ratio (B/D)
+0.10d0              ! theta     Shield parameter (D*S/delta*dg)    
+0.01d0            ! ds        grain roughness (dg/D)	
+1                   ! flagbed   source for bed configuration (0:Van Rijn, 1:flat bed, 2:dune-covered)    
+125.5d0              ! Rp        particle Reynolds number [(Delta g dg^3)^0.5 / nu]
+0.5d0               ! rpic      transverse transport parameter (Talmon 1995)
+1                   ! jmodel    flow field model (1:ZS, 2:IPS)
+1000                ! Nz        number of points for the vertical flow integration in ZS model
+6                   ! Mdat      order of the Fourier expansion in ZS model
+- GEOMORPHOLOGY --------------------------------------------------------------------------------------------
+0.00000001d0        ! Ef        erodibility of the floodplain
+0.00000001d0        ! Eb        erodibility of the point bars
+0.00000001d0        ! Eo        erodibility of the oxbow lakes
+0	            ! flag_ox   flag for existing structure of the floodplain (0:no, 1:yes))
+- RIVER CONFIGURATION --------------------------------------------------------------------------------------
+1000                ! N0        initial number of points
+2                   ! flagxy0   initial planform configuration (1:random, 2:given from filexy)
+straingh_random.xy             ! filexy    name of geometry file with dimensionless coordinates (maximum 20 letters)     
+1.0d0               ! deltas    resampling distance between axis points
+0.80d0              ! dsmin     minimum allowed value of grid size (times deltas)
+1.20d0              ! dsmax     maximum allowed value of grid size (times deltas)
+900		            ! Nrand     number of point interested by a slight perturbation if flagxy0 = 1
+0.01d0		        ! stdv      standard deviation of initial perturbation if flagxy0 = 1
+2.2d0 		        ! tollc     minimum threshold before neck-cutoff
+6                   ! jre       removed points before and after a cutoff
+10                  ! jnco      minimum threshold points for neck cutoff searching (>2)
+5                  ! ksavgol   Savitzky–Golay flag: (<0 smooth iter; >0 smoothing interval; 0: no)
+- TIME STEP AND PRINTING -----------------------------------------------------------------------------------
+3                   ! flag_time final time (1:time, 2:coeff, 3:iterations, 4:cutoffs 5:printed confs)
+100.0               ! TTs       simulation time if flag_time = 1 (dimensionless years)
+25.0		        ! kTTfco    coefficient for first cutoff time if flag_time = 2
+5000	            ! nend      item number if flag_time >= 3 (iterations, cutoffs, printed confs)
+0.d0                ! tt0       starting time (dimensionless years)
+1                   ! flag_dt   flag for time marching (1:fixed and equal to dt0, 2:dynamic <dt0)
+1.0d0               ! dt0       fixed time step (dimensionless years)
+0.05d0              ! cstab     coefficient for time marching
+100                ! ivideo    iterations between two screen prints
+10                 ! ifile     iterations between two file prints
+- VALLEY BOUNDARIES ----------------------------------------------------------------------------------------
+0                   ! transition shape (0: no boundary, 1:sharp,2:spline,3:exp-decaying,4:exp-reversed)
+0.000000001d0       ! erodibility coefficient of the valley boundaries
+10000.d0            ! transverse half-width of the usual floodplain
+50.d0               ! thickness of the transition layer  
