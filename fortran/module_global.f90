@@ -5,12 +5,12 @@
       implicit none
       
 ! file names
-      character*20 dirIN      ! input directory
-      character*20 dirOUT     ! output directory
-      character*20 dirTMP     ! temporary directory
-      character*20 simname    ! name of the simulation
-      character*20 filesim    ! name of the file sim (into dirIN)
-      character*20 filexy     ! name of the file with the initial coordinates
+      character*30 dirIN      ! input directory
+      character*30 dirOUT     ! output directory
+      character*30 dirTMP     ! temporary directory
+      character*30 simname    ! name of the simulation
+      character*30 filesim    ! name of the file sim (into dirIN)
+      character*30 filexy     ! name of the file with the initial coordinates
       character*100 filename  ! auxiliary file name
       
 ! flow and sediment
