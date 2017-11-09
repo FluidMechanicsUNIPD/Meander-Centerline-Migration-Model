@@ -69,7 +69,15 @@
       theta = theta0
       ds = ds0
 
-      call resistance(1, 2, 1, trasp, fondo)
+      select case (flagbed)
+      case (0)
+!        call resistance_van rijn(1, trasp, fondo)
+      case (1)
+        call resistance_flat_bed(1)
+      case (2)
+        call resistance_dune_bed(1)
+      end select
+      
       Cf0 = Cf
       Cfold = Cf
 
@@ -95,7 +103,7 @@
 ! ZS model
       case(1)
         call coefZS(jt)
-        call dUZS
+        call dUZS(jt)
 ! IPS model
       case(2)
         call dUIPS
