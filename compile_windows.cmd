@@ -1,6 +1,6 @@
 ::---------------------------------------------------------------------
 :: COMMAND FILE TO COMPILE THE SOURCE CODE OF MEANDER MIGRATION MODEL
-:: last update: 2017/01/02 by Manuel Bogoni
+:: last update: 2017/11/09 by Manuel Bogoni
 ::---------------------------------------------------------------------
 
 :: set the directory with the source code
@@ -55,7 +55,8 @@ printtime.f90 ^
 randomconfig.f90 ^
 randomnormal.f90 ^
 resampling.f ^
-resistance.f ^
+resistance_dune_bed.f ^
+resistance_flat_bed.f ^
 rungeg.f90 ^
 savgolfilter_new.f ^
 searchpoint_new.f90 ^
@@ -66,6 +67,7 @@ time2sec.f90 ^
 timestep.f ^
 windingnumber.f90 ^
 zroots.f  ^
+zs_terms.f ^
 -o %exe%
 
 ::  copy executable code
