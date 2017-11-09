@@ -2,7 +2,7 @@
 ! MEANDER CENTERLINE MIGRATION MODEL - MCMM
 ! Simulation of the planform evolution of freely-evolving meanders with
 ! three environments (floodplain, scroll bars, oxbow lakes).
-! Last update: 2017/09/07 by Manuel Bogoni
+! Last update: 2017/11/09 by Manuel Bogoni
 !-----------------------------------------------------------------------
 ! FLOW FIELD:
 ! ZS approach (Zolezzi and Seminara, JFM 2001)
@@ -389,7 +389,14 @@
 ! flow resistance and sediment transport
 !-----------------------------------------------------------------------
         Cfold = Cf
-        call resistance(1, 2, 0, trasp, fondo)
+        select case (flagbed)
+        case (0)
+!          call resistance_van rijn(0, trasp, fondo)
+        case (1)
+          call resistance_flat_bed(0)
+        case (2)
+          call resistance_dune_bed(0)
+        end select
         
 !-----------------------------------------------------------------------                      
 ! update leading parameters
@@ -412,7 +419,7 @@
 ! ZS model      
         case(1)
           call coefZS(jt)
-          call dUZS
+          call dUZS(jt)
 ! IPS model
         case(2)
           call dUIPS
