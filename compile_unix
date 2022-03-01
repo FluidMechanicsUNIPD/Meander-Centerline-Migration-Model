@@ -1,13 +1,13 @@
 #---------------------------------------------------------------------
 # SCRIPT TO COMPILE THE SOURCE CODE OF MEANDER MIGRATION MODEL
-# last update: 2017/11/09 by Manuel Bogoni
+# last update: 2022/03/01 by Manuel Bogoni
 #---------------------------------------------------------------------
 
 # set the directory with the source code
 dir="fortran"
 
 # set the name of the executable
-exe="mcmm"
+exe="mcmm.exe"
 
 # set the Fortran compiler
 fc90="gfortran"
