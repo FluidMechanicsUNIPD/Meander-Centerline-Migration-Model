@@ -21,4 +21,4 @@ See:
 [CSDMS GitHub](https://github.com/csdms-contrib/Meander-Centerline-Migration-Model)
 
 Please cite:
-Bogoni, M., M. Putti, and S. Lanzoni(2017), Modeling meandermorphodynamics over self-formedheterogeneous floodplains,WaterResour. Res.,53, 5137–5157,doi:10.1002/2017WR020726
+Bogoni, M., Putti M., and Lanzoni S. (2017), Modeling meandermorphodynamics over self-formed heterogeneous floodplains, Water Resour. Res. 53, 5137–5157, doi:10.1002/2017WR020726
